@@ -3,9 +3,9 @@ close all; clear all; clc;
 PR=[0 1; 0 1; 0 1; 0 1; 0 1; 0 1; 0 1; 0 1; 0 1; 0 1;   
     0 1; 0 1; 0 1; 0 1; 0 1; 0 1; 0 1; 0 1; 0 1; 0 1;];
 %wejscia do sieci i min/max wartosci wejsc
-S=20; %ilosc wyjsc z sieci
+S=[40 20 20]; %ilosc neuronow w kazdej z warstw
+net = newff(PR,S,{'tansig','tansig','tansig'},'traingda');
 
-net = newff(PR,S,{'tansig'},'traingda'); 
 
    %A B C D E F G H I J K L N O P R S T U Y
 WE=[0 1 0 1 1 1 0 1 1 1 1 1 1 0 1 1 0 1 1 1;
@@ -168,7 +168,7 @@ test  = [0; 1; 0; 0;
          1; 0; 0; 0;
          1; 0; 0; 0];     
      
-efekt=sim(net, testa);%testowanie sieci
+efekt=sim(net, test);%testowanie sieci
 %testX gdzie x to litera
 
 %szukanie najwiekszej wartosci
